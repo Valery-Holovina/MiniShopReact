@@ -1,0 +1,305 @@
+
+/* ===== GLOBAL THEME ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  transition: all 0.2s ease;
+}
+
+.app {
+  --bg: #f7f6fa;
+  --surface: #ffffff;
+  --surface-soft: #f2eef8;
+  --text: #252033;
+  --muted: #827b90;
+  --border: #eae5f0;
+  --accent: #7952b3;
+  --accent-hover: #624091;
+  --accent-soft: #eee7f7;
+  --shadow: 0 8px 30px rgba(45, 30, 65, 0.06);
+
+  min-height: 100vh;
+  padding: 32px clamp(18px, 5vw, 76px);
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.app.dark-theme {
+  --bg: #17151e;
+  --surface: #23202d;
+  --surface-soft: #2d2938;
+  --text: #f5f1fa;
+  --muted: #aaa1b8;
+  --border: #393344;
+  --accent: #b58be8;
+  --accent-hover: #c9a8f1;
+  --accent-soft: #393047;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* ===== HEADER ===== */
+
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--border);
+}
+
+.mainHeader h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 800;
+  letter-spacing: -1.2px;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cartHeaderButton,
+.themeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 17px;
+  border-radius: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.cartHeaderButton {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+.cartHeaderButton:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.themeButton {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.themeButton:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ===== NAVIGATION ===== */
+
+.viewNavigation {
+  display: flex;
+  gap: 10px;
+  margin: 26px 0;
+}
+
+.viewNavigation button {
+  padding: 11px 19px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--surface);
+  color: var(--muted);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.viewNavigation button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.viewNavigation button.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+/* ===== FILTERS ===== */
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex-wrap: wrap;
+  margin: 28px 0;
+}
+
+.filters input,
+.filters select {
+  min-height: 46px;
+  padding: 0 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  background: var(--surface);
+  color: var(--text);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.filters input {
+  flex: 1;
+  min-width: 190px;
+}
+
+.filters select {
+  min-width: 160px;
+  cursor: pointer;
+}
+
+.filters input:focus,
+.filters select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* ===== PRODUCT GRID ===== */
+
+.productsGrid,
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 23px;
+}
+
+/* ===== GENERAL TEXT ===== */
+
+.app h2,
+.app h3 {
+  color: var(--text);
+}
+
+.app p {
+  color: var(--muted);
+}
+
+.app button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ===== LOADING AND ERROR ===== */
+
+.loading,
+.error,
+.emptyState {
+  padding: 55px 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.error {
+  color: #dc6262;
+}
+
+/* ===== PAGINATION ===== */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 40px 0 20px;
+}
+
+.pagination button {
+  min-width: 95px;
+  padding: 11px 17px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 700px) {
+  .app {
+    padding: 22px 16px;
+  }
+
+  .mainHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .headerActions {
+    width: 100%;
+  }
+
+  .filters {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
+  }
+
+  .productsGrid,
+  .productGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+}
+
+@media (max-width: 390px) {
+  .productsGrid,
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .headerActions {
+    gap: 8px;
+  }
+}
+
